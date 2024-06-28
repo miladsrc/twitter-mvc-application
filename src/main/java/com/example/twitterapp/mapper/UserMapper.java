@@ -13,5 +13,5 @@ public interface UserMapper {
 
     User userSaveRequestToModel(UserSaveRequest userSaveRequest);
 
-    UserSaveResponse userSaveResponseToModel(UserSaveResponse userSaveResponse);
+    UserSaveResponse modelToUserSaveResponse(User user);
 }
