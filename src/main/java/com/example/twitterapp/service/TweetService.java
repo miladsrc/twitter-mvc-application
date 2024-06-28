@@ -13,7 +13,7 @@ public class TweetService {
 
     public void addLikeToTweet(Tweet tweet) {
         Long value ;
-        if (tweetRepository.tweetExistById(tweet.getId())){
+        if (tweetRepository.existsById(tweet.getId())){
             value = tweetRepository.getLikes(tweet.getId());
             value+=1;
             tweetRepository.addToLikes(tweet.getId(), value);
