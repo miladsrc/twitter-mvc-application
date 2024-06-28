@@ -7,6 +7,9 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -29,4 +32,7 @@ public class User {
 
     @Column(name = "password")
     String password;
+
+    @ManyToMany
+    List<User> users = new ArrayList<>();
 }

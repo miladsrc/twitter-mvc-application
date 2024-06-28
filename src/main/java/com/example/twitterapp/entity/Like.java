@@ -1,12 +1,10 @@
 package com.example.twitterapp.entity;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 import org.hibernate.annotations.SoftDelete;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +16,18 @@ import java.util.List;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "tweet")
-public class Tweet {
+@Table(name = "likes")
+public class Like {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "content")
-    String content;
 
     @ManyToOne
-    @JoinColumn(name = "tweets")
-    User user;
+    @JoinColumn(name = "tweet_id")
+    Tweet tweet;
 
-    LocalDateTime registeredDate ;
 
-    @OneToMany(mappedBy = " tweet", fetch = FetchType.EAGER)
-    List<Like> like = new ArrayList<>();
+    @ManyToMany
+    List<User> users = new ArrayList<>();
 }
-
