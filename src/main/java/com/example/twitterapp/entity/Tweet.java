@@ -34,7 +34,6 @@ public class Tweet {
 
     LocalDateTime registeredDate ;
 
-    @OneToMany(mappedBy = " tweet", fetch = FetchType.EAGER)
-    List<Like> like = new ArrayList<>();
+    Long likes;
 }
 
